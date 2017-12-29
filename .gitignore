@@ -1,4 +1,5 @@
 .idea*
+indie_studio.cbp
 .DS_Store
 cmake-build-debug*
 Makefile

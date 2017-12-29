@@ -14,4 +14,4 @@ cd $DIR
 echo -e "$CYAN  Executing CMake $DEF"
 cmake -GNinja ../
 echo -e "$CYAN  Executing Make $DEF"
-ninja && mv $TARGET ../
+ninja
