@@ -3,6 +3,8 @@
 
 # ifdef		__linux__
 #  include	<irrlicht/irrlicht.h>
+# elif		__APPLE__
+#  include	<irrlicht/irrlicht.h>
 # elif		_WIN32
 #  include	"irrlicht/irrlicht.h"
 # endif

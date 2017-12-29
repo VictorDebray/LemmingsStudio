@@ -33,12 +33,12 @@ namespace indie
     Position					_gatePos;
 
    public:
-    ALevel() {}
+    ALevel() = default;
     ALevel(irr::scene::ISceneNode *parent,
 	   irr::scene::ISceneManager *smgr,
 	   std::string const &name, irr::f32 width = 240, irr::f32 height = 100,
 	   irr::f32 depth = 16);//copy billBoard wanted
-    virtual ~ALevel() {}
+    virtual ~ALevel() = default;
 
    public:
     virtual void		resetLevel() = 0;
@@ -46,20 +46,20 @@ namespace indie
     //DRAWING
    public:
     void 		drawBoard();
-    virtual void	draw() = 0;
+    virtual void	draw() override = 0;
 
    public:
     void		setName(std::string const &name);
     std::string const	&getName() const;
-    ObjMap 		getObjMap() const; //copy wanted
-    float		getUnitPerBlock() const;
-    int			getWidthObjMap() const;
-    int			getHeightObjMap() const;
-    float		getHeight() const;
-    Position const	&getStartPosition() const;
-    Position const	&getGatePosition() const;
-    void		printMap() const;
-    Sptr<Block>		&getBlockFromPos(Position const &pos);
+    ObjMap 		getObjMap() const override; //copy wanted
+    float		getUnitPerBlock() const override;
+    int			getWidthObjMap() const override;
+    int			getHeightObjMap() const override;
+    float		getHeight() const override;
+    Position const	&getStartPosition() const override;
+    Position const	&getGatePosition() const override;
+    void		printMap() const override;
+    Sptr<Block>		&getBlockFromPos(Position const &pos) override;
   };
 }
 

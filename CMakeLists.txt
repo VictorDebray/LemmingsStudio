@@ -10,13 +10,24 @@
 
 cmake_minimum_required(VERSION 3.5.0)
 project(indie_studio)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 if(UNIX AND NOT APPLE)
     message(STATUS "Linux detected - Adding compiler flags")
-    set(CMAKE_CXX_FLAGS "-std=c++14 -W -Wall -Wextra -Werror -lIrrlicht -lGL" )
+    set(CMAKE_CXX_FLAGS "-std=c++14 -W -Wall -Wextra -lIrrlicht -lGL" )
 endif(UNIX AND NOT APPLE)
+if(APPLE)
+    set(CMAKE_CXX_FLAGS "-std=c++14 -W -Wall -Wextra -lIrrlicht -fvisibility=hidden -fvisibility-inlines-hidden" )
+    FIND_LIBRARY( OPENGL_LIB OpenGL )
+    FIND_LIBRARY( COCOA_LIB Cocoa )
+    FIND_LIBRARY( CARBON_LIB Carbon )
+    FIND_LIBRARY( IOKIT_LIB IOKit )
+    LIST( APPEND IRRLICHT_LINK_LIBS ${OPENGL_LIB} ${IOKIT_LIB} ${COCOA_LIB} ${CARBON_LIB} )
+    ADD_DEFINITIONS(-DMACOSX)
+endif(APPLE)
 
-## Set Directories
+    ## Set Directories
 set(SRC_DIR ${PROJECT_SOURCE_DIR}/src/)
 set(CORE_DIR ${SRC_DIR}Core/)
 set(PAGE_DIR ${SRC_DIR}Page/)
@@ -101,6 +112,7 @@ set(SRCS
         ${FILE_DIR}FileHandler.cpp
 
         ## GRAPHIC
+        ${LIB_3D_DIR}irrlicht.hpp
         ${LIB_3D_DIR}Lib3D.cpp
         ${LIB_3D_DIR}PhysicsEngine/Collisions.cpp
         ${GRAPHIC_DIR}Init.cpp
@@ -108,6 +120,7 @@ set(SRCS
         ${GRAPHIC_DIR}Display.cpp
         ${GRAPHIC_DIR}Accessor.cpp
         ${GRAPHIC_DIR}Misc.cpp
+        ${GRAPHIC_DIR}Graphic.hpp
         ${GRAPHIC_DIR}Camera.cpp
 
 	## EVENTS
@@ -168,6 +181,9 @@ add_executable(${PROJECT_NAME} ${SRCS})
 if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/lib/linux/libIrrKlang.so)
 endif(UNIX AND NOT APPLE)
+if (APPLE)
+    target_link_libraries(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/lib/macos/libirrklang.dylib ${IRRLICHT_LINK_LIBS})
+endif(APPLE)
 
 if(WIN32)
     target_link_libraries(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/lib/windows/Irrlicht.lib)

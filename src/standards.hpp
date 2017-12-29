@@ -38,8 +38,8 @@ struct		Position
   float		x;
   float		y;
   float		z;
-		Position();
-		Position(const float x, const float y, const float z);
+		Position() = default;
+		Position(float x, float y, float z = 0);
   Position&	operator+=(const Position&);
 };
 
