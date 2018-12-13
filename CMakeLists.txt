@@ -11,7 +11,7 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(indie_studio)
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
 
 if(UNIX AND NOT APPLE)
     message(STATUS "Linux detected - Adding compiler flags")
