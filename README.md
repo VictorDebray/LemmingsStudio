@@ -1,7 +1,7 @@
 # LemmingsStudio
 Recode of the game Lemmings
 
-##Presentation of the game
+## Presentation of the game
 The goal is to get as much lemmings (the potato heads) as you can through the gate. 
 \
 These characters will spawn and walk only one way. 
@@ -24,24 +24,27 @@ We implemented 3 levels.
 But first the home screen !
 ![homescreen](./screenshots/homescreen.png)
 
-###Level 1
+### Level 1
+
 ![level 1](./screenshots/level1.png)
 *Your goal in this level is to place the potato head at the good place so they do not fall 
 (like it happen where there is a grave)*
 
-###Level 2
+### Level 2
+
 ![level 2](./screenshots/level2.png)
 *Here your plan will be to either climb or dig this stupid wall. Then be careful, the platform is very high ! you don't want to clean up the mashed potato...*
 \
 ![wall broken](./screenshots/wall open.png)
 
-###Level 3
+### Level 3
+
 ![level 3](./screenshots/level3.png)
 *"Cause baby there ain't nooo mountain hiiiiigh enough !!!" I think you get my point here...*
 \
 ![climbing](./screenshots/climbing.png)
 
-###Conclusion
+### Conclusion
 A few specs of the game :
 - Beautiful graphics
 - Epic halloween theme.
