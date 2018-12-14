@@ -35,7 +35,7 @@ But first the home screen !
 ![level 2](./screenshots/level2.png)
 *Here your plan will be to either climb or dig this stupid wall. Then be careful, the platform is very high ! you don't want to clean up the mashed potato...*
 \
-![wall broken](./screenshots/wall open.png)
+![wall broken](./screenshots/wall_open.png)
 
 ### Level 3
 
